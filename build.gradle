@@ -1,0 +1,38 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.2.2.RELEASE")
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+apply plugin: 'spring-boot'
+//apply plugin: 'war'
+
+jar {
+    baseName = 'RecSystem'
+    version =  '0.1.0'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile("org.springframework.boot:spring-boot-starter-thymeleaf")
+    compile("org.springframework.cloud:spring-cloud-config-client:1.0.0.RELEASE")
+     compile("org.springframework:spring-jdbc:4.1.5.RELEASE")
+    compile( "mysql:mysql-connector-java:5.1.24" )
+    
+    compile fileTree(dir: 'libs', include: 'mahout-core-0.2-SNAPSHOT.jar')
+    compile fileTree(dir: 'libs', include: 'uncommons-math-1.2.jar')
+    testCompile("junit:junit")
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '1.11'
+}
