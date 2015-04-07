@@ -1,5 +1,6 @@
 package org.shan.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -27,9 +28,9 @@ import com.test.UserDAOImpl;
 
 @Controller
 public class RecController {
-	
+
 	private static DataModel dataModel;
-	
+
 	@RequestMapping("/test/itemcf")
 	@ResponseBody
 	String itemCF(
@@ -65,58 +66,78 @@ public class RecController {
 
 		return "fail";
 	}
+
 	@RequestMapping("/test/db")
 	@ResponseBody
-	String dbTable(DbSetting dbSetting,HttpServletRequest request,Model model
-			) {
+	String dbTable(DbSetting dbSetting, HttpServletRequest request, Model model) {
 		try {
-			String rs=
-					DbUtil.myExecuateQuery("select * from try1",dbSetting.getDatabaseDriver(), dbSetting.getDatabaseURL(), dbSetting.getDatabaseUser(), dbSetting.getDatabasePassword());
-			
+			String rs = DbUtil.myExecuateQuery("select * from try1",
+					dbSetting.getDatabaseDriver(), dbSetting.getDatabaseURL(),
+					dbSetting.getDatabaseUser(),
+					dbSetting.getDatabasePassword());
+
 			return rs;
-			
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 
 		return "fail";
 	}
-	
+
 	@RequestMapping("/set_db")
 	public String set_db(
 			@RequestParam(value = "name", required = false, defaultValue = "World") String name,
 			Model model) {
-//		model.addAttribute("name", name);
+		// model.addAttribute("name", name);
 		return "set_db";
 	}
-	
+
+	@RequestMapping("/blank")
+	public String blankPage(Model model) {
+		List<String> nameList=new ArrayList<String>();
+		nameList.add("aaa");
+		nameList.add("bbb");
+		nameList.add("ccc");
+		nameList.add("ddd");
+		model.addAttribute("nameList", nameList);
+		return "blank";
+	}
+
 	@RequestMapping("/set_db_done")
-	public String setDbDone(DbSetting dbSetting,HttpServletRequest request,Model model){
-		DatabaseService dbService=new DatabaseService(dbSetting);
-		this.dataModel=dbService.newModel();
-//		model.addAttribute("recommend", dbService.newRecommend(201225030, 2));
+	public String setDbDone(DbSetting dbSetting, HttpServletRequest request,
+			Model model) {
+		DatabaseService dbService = new DatabaseService(dbSetting);
+		this.dataModel = dbService.newModel();
+		// model.addAttribute("recommend", dbService.newRecommend(201225030,
+		// 2));
 		model.addAttribute("dbSetting", dbSetting);
-     return "db_done";
+		return "db_done";
 	}
+
 	@RequestMapping("/ok")
-	public String setDbOk(){
-				
-     return "select_model";
+	public String setDbOk() {
+
+		return "select_model";
 	}
-	
+
 	@RequestMapping("/model_selected")
 	@ResponseBody
-	String modelSelected(AnalysedModel modelSelected,HttpServletRequest request,Model model) {
-		String CollaborativeFiltering=request.getParameter("collaborative_filtering");
-		System.out.println(CollaborativeFiltering+"modelSelected.getCollaborativeFiltering()"+modelSelected.getCollaborative_filtering());
-		System.out.println(""+modelSelected.getNeighbourhoods());
-		System.out.println(""+modelSelected.getSimilarity());
-		
-		
-		ModelSelectedService modelSelectedService=new ModelSelectedService(modelSelected, dataModel);
+	String modelSelected(AnalysedModel modelSelected,
+			HttpServletRequest request, Model model) {
+		String CollaborativeFiltering = request
+				.getParameter("collaborative_filtering");
+		System.out.println(CollaborativeFiltering
+				+ "modelSelected.getCollaborativeFiltering()"
+				+ modelSelected.getCollaborative_filtering());
+		System.out.println("" + modelSelected.getNeighbourhoods());
+		System.out.println("" + modelSelected.getSimilarity());
+
+		ModelSelectedService modelSelectedService = new ModelSelectedService(
+				modelSelected, dataModel);
 		return modelSelectedService.newRecommend(201225030, 2);
 	}
-	
+
 	@RequestMapping("/test")
 	@ResponseBody
 	String item() {
@@ -131,8 +152,7 @@ public class RecController {
 		model.addAttribute("name", name);
 		return "greeting";
 	}
-	
-	
+
 	@RequestMapping("/charts")
 	public String charts() {
 
