@@ -19,131 +19,156 @@ import org.apache.mahout.cf.taste.similarity.ItemSimilarity;
 import org.shan.model.CourseModel;
 import org.shan.model.CourseSimilarityTable;
 
-
-
-public class ItemBaseRecommender implements Recommender{
+public class ItemBaseRecommender implements Recommender {
 	private Recommender recommender;
 
-	  /**
-	   * @throws IOException if an error occurs while creating the {@link GroupLensDataModel}
-	   * @throws TasteException if an error occurs while initializing this {@link GroupLensRecommender}
-	   */
-	  public ItemBaseRecommender() throws IOException, TasteException {
-//		  this(new CourseModel());
-		  
-		  Collection<GenericItemSimilarity.ItemItemSimilarity> correlations = CourseSimilarityTable.getAllMovieSimilarities();
-		  ItemSimilarity itemSimilarity = new GenericItemSimilarity(correlations);
-		  recommender = new CachingRecommender(new EmbededItemBasedRecommender(new GenericItemBasedRecommender(new CourseModel(), itemSimilarity)));
-	 
-		  DataModel model = new CourseModel();
-		//基于谷本系数的相似性计算
-			TanimotoCoefficientSimilarity tcs = new TanimotoCoefficientSimilarity(
-					model);
-			//近邻计算
-//			UserNeighborhood tcsneighborhood = new NearestNUserNeighborhood(3,
-//					tcs, model);
-			//推荐
-			recommender = new CachingRecommender(new EmbededItemBasedRecommender(new GenericItemBasedRecommender(
-					model, tcs)));
-	  }
+	/**
+	 * @throws IOException
+	 *             if an error occurs while creating the
+	 *             {@link GroupLensDataModel}
+	 * @throws TasteException
+	 *             if an error occurs while initializing this
+	 *             {@link GroupLensRecommender}
+	 */
+	public ItemBaseRecommender() throws IOException, TasteException {
+		// this(new CourseModel());
 
-	  /**
-	   * <p>Alternate constructor that takes a {@link DataModel} argument, which allows this {@link Recommender}
-	   * to be used with the {@link org.apache.mahout.cf.taste.eval.RecommenderEvaluator} framework.</p>
-	   *
-	   * @param dataModel data model
-	   * @throws TasteException if an error occurs while initializing this {@link GroupLensRecommender}
-	   */
-	  public ItemBaseRecommender(DataModel dataModel) throws TasteException {
-		  Collection<GenericItemSimilarity.ItemItemSimilarity> correlations = CourseSimilarityTable.getAllMovieSimilarities();
-		  ItemSimilarity itemSimilarity = new GenericItemSimilarity(correlations);
-		  recommender = new CachingRecommender(new EmbededItemBasedRecommender(new GenericItemBasedRecommender(dataModel, itemSimilarity)));
-	  }
-	  
-	  
-	  public List<RecommendedItem> recommend(long userID, int howMany) throws TasteException {
-		  return recommender.recommend(userID, howMany);
-	  }
+		// Collection<GenericItemSimilarity.ItemItemSimilarity> correlations =
+		// CourseSimilarityTable.getAllMovieSimilarities();
+		// ItemSimilarity itemSimilarity = new
+		// GenericItemSimilarity(correlations);
+		// recommender = new CachingRecommender(new
+		// EmbededItemBasedRecommender(new GenericItemBasedRecommender(new
+		// CourseModel(), itemSimilarity)));
 
-	 
-	  public List<RecommendedItem> recommend(long userID, int howMany, Rescorer<Long> rescorer)
-	          throws TasteException {
-	    return recommender.recommend(userID, howMany, rescorer);
-	  }
+		// 生成modle
+		DataModel model = new CourseModel();
+		// 基于谷本系数的相似性计算
+		TanimotoCoefficientSimilarity tcs = new TanimotoCoefficientSimilarity(
+				model);
+		// 近邻计算
+		// UserNeighborhood tcsneighborhood = new NearestNUserNeighborhood(3,
+		// tcs, model);
+		// 推荐
+		recommender = new CachingRecommender(new EmbededItemBasedRecommender(
+				new GenericItemBasedRecommender(model, tcs)));
+	}
 
-	  //估计喜欢程度
-	  public float estimatePreference(long userID, long itemID) throws TasteException {
-	    return recommender.estimatePreference(userID, itemID);
-	  }
+	/**
+	 * <p>
+	 * Alternate constructor that takes a {@link DataModel} argument, which
+	 * allows this {@link Recommender} to be used with the
+	 * {@link org.apache.mahout.cf.taste.eval.RecommenderEvaluator} framework.
+	 * </p>
+	 *
+	 * @param dataModel
+	 *            data model
+	 * @throws TasteException
+	 *             if an error occurs while initializing this
+	 *             {@link GroupLensRecommender}
+	 */
+	// public ItemBaseRecommender(DataModel dataModel) throws TasteException {
+	// Collection<GenericItemSimilarity.ItemItemSimilarity> correlations =
+	// CourseSimilarityTable
+	// .getAllMovieSimilarities();
+	// ItemSimilarity itemSimilarity = new GenericItemSimilarity(correlations);
+	// recommender = new CachingRecommender(new EmbededItemBasedRecommender(
+	// new GenericItemBasedRecommender(dataModel, itemSimilarity)));
+	// }
 
-	  
-	  public void setPreference(long userID, long itemID, float value) throws TasteException {
-	    recommender.setPreference(userID, itemID, value);
-	  }
+	public ItemBaseRecommender(DataModel dataModel) throws TasteException {
+		// 基于谷本系数的相似性计算
+		TanimotoCoefficientSimilarity tcs = new TanimotoCoefficientSimilarity(
+				dataModel);
+		// 推荐
+		recommender = new CachingRecommender(new EmbededItemBasedRecommender(
+				new GenericItemBasedRecommender(dataModel, tcs)));
+	}
 
-	  
-	  public void removePreference(long userID, long itemID) throws TasteException {
-	    recommender.removePreference(userID, itemID);
-	  }
+	public List<RecommendedItem> recommend(long userID, int howMany)
+			throws TasteException {
+		return recommender.recommend(userID, howMany);
+	}
 
-	  
-	  public DataModel getDataModel() {
-	    return recommender.getDataModel();
-	  }
+	public List<RecommendedItem> recommend(long userID, int howMany,
+			Rescorer<Long> rescorer) throws TasteException {
+		return recommender.recommend(userID, howMany, rescorer);
+	}
 
-	  
-	  public void refresh(Collection<Refreshable> alreadyRefreshed) {
-	    recommender.refresh(alreadyRefreshed);
-	  }
+	// 估计喜欢程度
+	public float estimatePreference(long userID, long itemID)
+			throws TasteException {
+		return recommender.estimatePreference(userID, itemID);
+	}
 
-	  
-	  public String toString() {
-	    return "MovieRecommender[recommender:" + recommender + ']';
-	  }
-	
-	 private static final class EmbededItemBasedRecommender implements Recommender {
+	public void setPreference(long userID, long itemID, float value)
+			throws TasteException {
+		recommender.setPreference(userID, itemID, value);
+	}
 
-		    private final GenericItemBasedRecommender recommender;
+	public void removePreference(long userID, long itemID)
+			throws TasteException {
+		recommender.removePreference(userID, itemID);
+	}
 
-		    private EmbededItemBasedRecommender(GenericItemBasedRecommender recommender) {
-		      this.recommender = recommender;
-		    }
+	public DataModel getDataModel() {
+		return recommender.getDataModel();
+	}
 
-			public float estimatePreference(long userID, long itemID)
-					throws TasteException {
-				return recommender.estimatePreference(userID, itemID);
-			}
+	public void refresh(Collection<Refreshable> alreadyRefreshed) {
+		recommender.refresh(alreadyRefreshed);
+	}
 
-			public DataModel getDataModel() {
-				return recommender.getDataModel();
-			}
+	public String toString() {
+		return "MovieRecommender[recommender:" + recommender + ']';
+	}
 
-			public List<RecommendedItem> recommend(long userID, int howMany)
-					throws TasteException {
-				return this.recommend(userID, howMany, null);
-			}
+	private static final class EmbededItemBasedRecommender implements
+			Recommender {
 
-			public List<RecommendedItem> recommend(long userID,
-					int howMany, Rescorer<Long> rescorer)
-					throws TasteException {
-				FastIDSet itemIDs = recommender.getDataModel().getItemIDsFromUser(userID);
-				return recommender.mostSimilarItems(itemIDs.toArray(), howMany, null);
-			}
+		private final GenericItemBasedRecommender recommender;
 
-			public void removePreference(long userID, long itemID)
-					throws TasteException {
-				recommender.removePreference(userID, itemID);
-				
-			}
+		private EmbededItemBasedRecommender(
+				GenericItemBasedRecommender recommender) {
+			this.recommender = recommender;
+		}
 
-			public void setPreference(long userID, long itemID, float value)
-					throws TasteException {
-				recommender.setPreference(userID, itemID, value);
-				
-			}
+		public float estimatePreference(long userID, long itemID)
+				throws TasteException {
+			return recommender.estimatePreference(userID, itemID);
+		}
 
-			public void refresh(Collection<Refreshable> alreadyRefreshed) {
-				recommender.refresh(alreadyRefreshed);
-			}
-		  }	 
+		public DataModel getDataModel() {
+			return recommender.getDataModel();
+		}
+
+		public List<RecommendedItem> recommend(long userID, int howMany)
+				throws TasteException {
+			return this.recommend(userID, howMany, null);
+		}
+
+		public List<RecommendedItem> recommend(long userID, int howMany,
+				Rescorer<Long> rescorer) throws TasteException {
+			FastIDSet itemIDs = recommender.getDataModel().getItemIDsFromUser(
+					userID);
+			return recommender.mostSimilarItems(itemIDs.toArray(), howMany,
+					null);
+		}
+
+		public void removePreference(long userID, long itemID)
+				throws TasteException {
+			recommender.removePreference(userID, itemID);
+
+		}
+
+		public void setPreference(long userID, long itemID, float value)
+				throws TasteException {
+			recommender.setPreference(userID, itemID, value);
+
+		}
+
+		public void refresh(Collection<Refreshable> alreadyRefreshed) {
+			recommender.refresh(alreadyRefreshed);
+		}
+	}
 }

@@ -18,9 +18,22 @@ public class DataSourceConfig {
 	static final String URL = "jdbc:mysql://localhost:3306/school";
 	static final String USER = "root";
 	static final String PWD = "123456";
+	
+	
+	
+	@Bean
+	public static DataSource customDataSource(String driver,String url,String userName,String password) {
+		DriverManagerDataSource ds = new DriverManagerDataSource ();       
+		ds.setDriverClassName(driver);       //"com.mysql.jdbc.Driver"
+		ds.setUrl(url);       //"jdbc:mysql://localhost:3306/school"
+		ds.setUsername(userName);       //"root"
+		ds.setPassword(password);       //"123456"
+		return ds;
+	}
+	
 	//@RefreshScope
 	@Bean
-	public static DataSource customDataSource() {
+	public static DataSource myDataSource() {
 //		BasicDataSource dataSource = new BasicDataSource();
 //        dataSource.setDriverClassName("net.sourceforge.jtds.jdbc.Driver");
 //        dataSource.setUrl("jdbc:jtds:sqlserver://111.11.11.11/DataBaseName;user=sa;password=password");

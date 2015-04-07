@@ -19,7 +19,7 @@ public class UserDAOImpl  {
 		String uname=null;
 		try {
 //			conn = DBConn.getConn();
-			DataSource ds=DataSourceConfig.customDataSource();
+			DataSource ds=DataSourceConfig.myDataSource();
 			conn=ds.getConnection();
 //			pstmt = conn.prepareStatement("select * from course_preferences  where studentID = ?");
 //			pstmt.setLong(1, 201252003);
