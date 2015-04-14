@@ -15,7 +15,8 @@ public class DataSourceConfig {
 	private static final Logger LOGGER = LoggerFactory
 			.getLogger(DataSourceConfig.class);
 	static final String DRIVER = "com.mysql.jdbc.Driver";
-	static final String URL = "jdbc:mysql://localhost:3306/school";
+//	static final String URL = "jdbc:mysql://localhost:3306/school";
+	static final String URL = "jdbc:mysql://127.0.0.1:3306/school";
 	static final String USER = "root";
 	static final String PWD = "123456";
 	

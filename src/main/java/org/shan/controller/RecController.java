@@ -109,13 +109,17 @@ public class RecController {
 			Model model) {
 		DatabaseService dbService = new DatabaseService(dbSetting);
 		this.dataModel = dbService.newModel();
-		// model.addAttribute("recommend", dbService.newRecommend(201225030,
-		// 2));
+		System.out.println("dataModel"+dataModel);
+		if(dataModel!=null){
+			model.addAttribute("conn_message", "success");
+		}else{
+			model.addAttribute("conn_message","fail" );
+		}
 		model.addAttribute("dbSetting", dbSetting);
 		return "db_done";
 	}
 
-	@RequestMapping("/ok")
+	@RequestMapping("/select_model")
 	public String setDbOk() {
 
 		return "select_model";
@@ -130,9 +134,9 @@ public class RecController {
 		System.out.println(CollaborativeFiltering
 				+ "modelSelected.getCollaborativeFiltering()"
 				+ modelSelected.getCollaborative_filtering());
-		System.out.println("" + modelSelected.getNeighbourhoods());
-		System.out.println("" + modelSelected.getSimilarity());
-
+		System.out.println("modelSelected.getNeighbourhoods():" + modelSelected.getNeighbourhoods());
+		System.out.println("modelSelected.getSimilarity():" + modelSelected.getSimilarity());
+		System.out.println("dataModel"+dataModel);
 		ModelSelectedService modelSelectedService = new ModelSelectedService(
 				modelSelected, dataModel);
 		return modelSelectedService.newRecommend(201225030, 2);
