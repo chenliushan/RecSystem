@@ -30,6 +30,7 @@ import com.test.UserDAOImpl;
 public class RecController {
 
 	private static DataModel dataModel;
+	private static ModelSelectedService modelSelectedService;
 
 	@RequestMapping("/test/itemcf")
 	@ResponseBody
@@ -95,7 +96,7 @@ public class RecController {
 
 	@RequestMapping("/blank")
 	public String blankPage(Model model) {
-		List<String> nameList=new ArrayList<String>();
+		List<String> nameList = new ArrayList<String>();
 		nameList.add("aaa");
 		nameList.add("bbb");
 		nameList.add("ccc");
@@ -109,11 +110,11 @@ public class RecController {
 			Model model) {
 		DatabaseService dbService = new DatabaseService(dbSetting);
 		this.dataModel = dbService.newModel();
-		System.out.println("dataModel"+dataModel);
-		if(dataModel!=null){
+		System.out.println("dataModel" + dataModel);
+		if (dataModel != null) {
 			model.addAttribute("conn_message", "success");
-		}else{
-			model.addAttribute("conn_message","fail" );
+		} else {
+			model.addAttribute("conn_message", "fail");
 		}
 		model.addAttribute("dbSetting", dbSetting);
 		return "db_done";
@@ -126,7 +127,6 @@ public class RecController {
 	}
 
 	@RequestMapping("/model_selected")
-	@ResponseBody
 	String modelSelected(AnalysedModel modelSelected,
 			HttpServletRequest request, Model model) {
 		String CollaborativeFiltering = request
@@ -134,12 +134,37 @@ public class RecController {
 		System.out.println(CollaborativeFiltering
 				+ "modelSelected.getCollaborativeFiltering()"
 				+ modelSelected.getCollaborative_filtering());
-		System.out.println("modelSelected.getNeighbourhoods():" + modelSelected.getNeighbourhoods());
-		System.out.println("modelSelected.getSimilarity():" + modelSelected.getSimilarity());
-		System.out.println("dataModel"+dataModel);
-		ModelSelectedService modelSelectedService = new ModelSelectedService(
-				modelSelected, dataModel);
-		return modelSelectedService.newRecommend(201225030, 2);
+		System.out.println("modelSelected.getNeighbourhoods():"
+				+ modelSelected.getNeighbourhoods());
+		System.out.println("modelSelected.getSimilarity():"
+				+ modelSelected.getSimilarity());
+		System.out.println("dataModel" + dataModel);
+
+		this.modelSelectedService = new ModelSelectedService(modelSelected,
+				dataModel);
+		model.addAttribute("modelSelected", modelSelected);
+		return "recommend";
+	}
+
+	@RequestMapping("/recommend_results")
+	public String recommendPage(
+			@RequestParam(value = "num", required = false, defaultValue = "5") String num,
+			int userID, Model model) {
+		model.addAttribute("num", num);
+		model.addAttribute("userID", userID);
+		return "recommended_results";
+	}
+
+	@RequestMapping("/recommend")
+	@ResponseBody
+	public String recommend(
+			@RequestParam(value = "num", required = false, defaultValue = "5") String num,
+			int userID, Model model) {
+		// model.addAttribute("results",
+		// modelSelectedService.newRecommend(userID, Integer.valueOf(num)));
+		// return "recommend_results";
+		
+		return modelSelectedService.newRecommend(userID, Integer.valueOf(num));
 	}
 
 	@RequestMapping("/test")
