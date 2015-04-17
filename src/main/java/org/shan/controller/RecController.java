@@ -94,18 +94,18 @@ public class RecController {
 		return "set_db";
 	}
 
-	@RequestMapping("/blank")
-	public String blankPage(Model model) {
-		List<String> nameList = new ArrayList<String>();
-		nameList.add("aaa");
-		nameList.add("bbb");
-		nameList.add("ccc");
-		nameList.add("ddd");
-		model.addAttribute("nameList", nameList);
-		return "blank";
-	}
+//	@RequestMapping("/blank")
+//	public String blankPage(Model model) {
+//		List<String> nameList = new ArrayList<String>();
+//		nameList.add("aaa");
+//		nameList.add("bbb");
+//		nameList.add("ccc");
+//		nameList.add("ddd");
+//		model.addAttribute("nameList", nameList);
+//		return "blank";
+//	}
 
-	@RequestMapping("/set_db_done")
+	@RequestMapping("/db_done")
 	public String setDbDone(DbSetting dbSetting, HttpServletRequest request,
 			Model model) {
 		DatabaseService dbService = new DatabaseService(dbSetting);
@@ -200,6 +200,11 @@ public class RecController {
 
 		return TestRecommend.testRecommend();
 		// return "Hello World!";
+	}
+	@RequestMapping("/home")
+	String home_page() {
+
+		 return "home";
 	}
 
 	@RequestMapping("/index")
