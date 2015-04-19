@@ -182,29 +182,17 @@ public class RecController {
 		return "greeting";
 	}
 
-	@RequestMapping("/charts")
-	public String charts() {
 
-		return "charts";
-	}
-
-	@RequestMapping("/tables")
-	public String tables() {
-
-		return "tables";
-	}
+	
 
 	@RequestMapping("/")
-	@ResponseBody
-	String home() {
-
-		return TestRecommend.testRecommend();
-		// return "Hello World!";
+	public ModelAndView home() {
+		ModelAndView mav = new ModelAndView("index");
+		return mav;
 	}
 	@RequestMapping("/home")
 	String home_page() {
-
-		 return "home";
+		 return "index";
 	}
 
 	@RequestMapping("/index")
