@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head> 
+  <meta charset="utf-8" /> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" /> 
+  <meta name="description" content="" /> 
+  <meta name="author" content="" /> 
+  <title>Initialization - Admin</title> 
+  <!-- Bootstrap core CSS --> 
+  <link href="css/bootstrap.css" rel="stylesheet" /> 
+  <!-- Add custom CSS here --> 
+  <link href="css/sb-admin.css" rel="stylesheet" /> 
+  <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css" /> 
+ </head> 
+ <body> 
+  <div id="wrapper"> 
+   <!-- Sidebar --> 
+   <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation"> 
+    <!-- Brand and toggle get grouped for better mobile display --> 
+    <div class="navbar-header"> 
+     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button> 
+      <a class="navbar-brand" href="index.html">Recommender System</a>
+    </div> 
+    <!-- Collect the nav links, forms, and other content for toggling --> 
+    <div class="collapse navbar-collapse navbar-ex1-collapse">
+        <ul class="nav navbar-nav side-nav">
+          <li><a href="index.html"><i class="fa fa-font"></i>
+              Introduction</a></li>
+          <li ><a href="set_db.html"><i
+              class="fa fa-wrench"></i> Setting Database </a></li>
+          <li ><a href="db_done.html"><i class="fa fa-table"></i>
+              Over View Data</a></li>
+          <li class="active"><a href="select_model.html"><i class="fa fa-edit"></i> Select Models</a></li>
+          <li><a href="model_selected.html"><i class="fa fa-desktop"></i>
+              Recommend Test</a></li>
+          <li><a href="recommend_results.html"><i
+              class="fa fa-bar-chart-o"></i> Recommended Results</a></li>
+          
+        </ul>
+        <ul class="nav navbar-nav navbar-right navbar-user">
+          <li class="dropdown messages-dropdown"><a href="#"
+            class="dropdown-toggle" data-toggle="dropdown"><i
+              class="fa fa-envelope"></i> Messages <span class="badge">1</span>
+              <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              <li class="dropdown-header">1 New Messages</li>
+              <li class="message-preview"><a href="#"> <span
+                  class="avatar"><img src="http://placehold.it/50x50" /></span>
+                  <span class="name">Initialization</span> <span class="message">Hey there, Just initialization your recommended system...</span> <span class="time"><i
+                    class="fa fa-clock-o"></i> Now</span>
+              </a></li>
+              <li class="divider"></li>
+              
+              <li><a href="#">View Inbox <span class="badge">1</span></a></li>
+            </ul></li>
+          <li class="dropdown alerts-dropdown"><a href="#"
+            class="dropdown-toggle" data-toggle="dropdown"><i
+              class="fa fa-bell"></i> Alerts <span class="badge"></span> <b
+              class="caret"></b></a>
+            <ul class="dropdown-menu">
+              <li><a href="#">Default <span
+                  class="label label-default">Default</span></a></li>
+              <li><a href="#">Primary <span
+                  class="label label-primary">Primary</span></a></li>
+              <li><a href="#">Success <span
+                  class="label label-success">Success</span></a></li>
+              <li><a href="#">Info <span class="label label-info">Info</span></a></li>
+              <li><a href="#">Warning <span
+                  class="label label-warning">Warning</span></a></li>
+              <li><a href="#">Danger <span class="label label-danger">Danger</span></a></li>
+              <li class="divider"></li>
+              <li><a href="#">View All</a></li>
+            </ul></li>
+          <li class="dropdown user-dropdown"><a href="#"
+            class="dropdown-toggle" data-toggle="dropdown"><i
+              class="fa fa-user"></i> Jana <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              <li><a href="#"><i class="fa fa-user"></i> Profile</a></li>
+              <li><a href="#"><i class="fa fa-envelope"></i> Inbox <span
+                  class="badge">1</span></a></li>
+              <li><a href="#"><i class="fa fa-gear"></i> Settings</a></li>
+              <li class="divider"></li>
+              <li><a href="#"><i class="fa fa-power-off"></i> Log Out</a></li>
+            </ul></li>
+        </ul>
+      </div>
+    <!-- /.navbar-collapse --> 
+   </nav> 
+   <div id="page-wrapper"> 
+   
+    <div class="row"> 
+     <div class="col-lg-12"> 
+      <div class="bs-example"> 
+       <div class="jumbotron"> 
+        <h1>Select Model<small>推荐模型选择</small></h1> 
+        <p>初始化设置第二步：推荐模型选择</p> 
+        <p>设置推荐模型，包括相似度算法选择、近邻算法选择以及协同过滤推荐算法选择。推荐系统将根据相应的模型进行进行计算推荐。</p> 
+        <p> This is the second step to create your <strong>extraposition recommender system</strong>. </p> 
+        <p>- Select a recommender model. So that this recommender system can analyze datas in the database with the expected way. </p> 
+        <p class="text-primary">Just folow the instruction below.</p> 
+        <p> <a class="btn btn-primary btn-lg">Learn more</a> </p> 
+       </div> 
+      </div> 
+     </div> 
+    </div> 
+    <div class="page-header"> 
+     <h1 id="container">Model Selection</h1> 
+    </div> 
+    <div class="row"> 
+     <div class="col-lg-12"> 
+      <div class="panel panel-info"> 
+       <div class="panel-heading"> 
+        <h3 class="panel-title" id="similarity">Similarity Calculation Introduction &amp; selection</h3> 
+        <label class="label label-primary" id="similarity"></label> 
+       </div> 
+       <div class="panel-body"> 
+        <div class="bs-example" id="similarity"> 
+         <ul class="nav nav-tabs" style="margin-bottom: 15px;"> 
+          <li class="active"><a href="#Euclidean" data-toggle="tab">Euclidean Distance</a></li> 
+          <li class=""><a href="#Pearson" data-toggle="tab">Pearson Correlation Coefficient</a></li> 
+          <li class=""><a href="#Log" data-toggle="tab">Log-likelihood Similarity</a></li> 
+          <li class=""><a href="#Tanimoto" data-toggle="tab">Tanimoto Coefficient</a></li> 
+         </ul> 
+         <div id="myTabContent" class="tab-content"> 
+          <div class="tab-pane fade active in" id="Euclidean"> 
+           <p id="p">欧几里德距离（Euclidean Distance）</p> 
+           <p>最初用于计算欧几里德空间中两个点的距离，假设 x，y 是 n 维空间的两个点，它们之间的欧几里德距离是：</p> 
+           <p>可以看出，当 n=2 时，欧几里德距离就是平面上两个点的距离。 当用欧几里德距离表示相似度，一般采用以下公式进行转换：距离越小，相似度越大</p> 
+           <button type="button" class="btn btn-primary btn-lg-12 " id="Euclidean Distance">Selected</button> 
+          </div> 
+          <div class="tab-pane fade" id="Pearson"> 
+           <p>皮尔逊相关系数（Pearson Correlation Coefficient）</p> 
+           <p>皮尔逊相关系数一般用于计算两个定距变量间联系的紧密程度，它的取值在 [-1，+1] 之间。sx, sy是 x 和 y 的样品标准偏差。</p> 
+           <button type="button" class="btn btn-primary btn-lg-12 " id="Pearson Correlation Coefficient">Selected</button> 
+          </div> 
+          <div class="tab-pane fade" id="Log"> 
+           <p>C对数似然相似度（Log-likelihood Similarity）</p> 
+           <p>原理：重叠的个数，不重叠的个数，都没有的个数</p> 
+           <p>范围：具体可去百度文库中查找论文《Accurate Methods for the Statistics of Surprise and Coincidence》</p> 
+           <p>说明：处理无打分的偏好数据，比Tanimoto系数的计算方法更为智能。</p> 
+           <button type="button" class="btn btn-primary btn-lg-12 " id="Log-likelihood Similarity">Selected</button> 
+          </div> 
+          <div class="tab-pane fade" id="Tanimoto"> 
+           <p>Tanimoto 系数（Tanimoto Coefficient）</p> 
+           <p>Tanimoto 系数也称为 Jaccard 系数，是 Cosine 相似度的扩展，也多用于计算文档数据的相似度：</p> 
+           <button type="button" class="btn btn-primary btn-lg-12 " id="Tanimoto Coefficient">Selected</button> 
+          </div> 
+         </div> 
+        </div> 
+       </div> 
+      </div> 
+     </div> 
+    </div> 
+    <div class="row"> 
+     <div class="col-lg-12"> 
+      <div class="panel panel-info"> 
+       <div class="panel-heading"> 
+        <h3 class="panel-title" id="collaborative_filtering">Collaborative Filtering Introduction &amp; selection</h3> 
+        <label class="label label-primary" id="collaborative_filtering"></label> 
+       </div> 
+       <div class="panel-body"> 
+        <div class="bs-example" id="collaborative_filtering"> 
+         <ul class="nav nav-tabs" style="margin-bottom: 15px;"> 
+          <li class="active"><a href="#User" data-toggle="tab">User CF</a></li> 
+          <li class=""><a href="#Item" data-toggle="tab">Item CF</a></li> 
+         </ul> 
+         <div id="myTabContent" class="tab-content"> 
+          <div class="tab-pane fade active in" id="User"> 
+           <p>基于用户的 CF（User CF）</p> 
+           <p>基于用户的 CF 的基本思想相当简单，基于用户对物品的偏好找到相邻邻居用户，然后将邻居用户喜欢的推荐给当前用户。计算上，就是将一个用户对所有物品的偏好作为一个向量 来计算用户之间的相似度，找到 K 邻居后，根据邻居的相似度权重以及他们对物品的偏好，预测当前用户没有偏好的未涉及物品，计算得到一个排序的物品列表作为推荐。</p> 
+           <button type="button" class="btn btn-primary btn-lg-12 " id="User CF">Selected</button> 
+          </div> 
+          <div class="tab-pane fade" id="Item"> 
+           <p>基于物品的 CF（Item CF）</p> 
+           <p>基于物品的 CF 的原理和基于用户的 CF 类似，只是在计算邻居时采用物品本身，而不是从用户的角度，即基于用户对物品的偏好找到相似的物品，然后根据用户的历史偏好，推荐相似的物品给他。从计算 的角度看，就是将所有用户对某个物品的偏好作为一个向量来计算物品之间的相似度，得到物品的相似物品后，根据用户历史的偏好预测当前用户还没有表示偏好的 物品，计算得到一个排序的物品列表作为推荐。图 3 给出了一个例子，对于物品 A，根据所有用户的历史偏好，喜欢物品 A 的用户都喜欢物品 C，得出物品 A 和物品 C 比较相似，而用户 C 喜欢物品 A，那么可以推断出用户 C 可能也喜欢物品 C。</p> 
+           <button type="button" class="btn btn-primary btn-lg-12 " id="Item CF">Selected</button> 
+          </div> 
+         </div> 
+        </div> 
+       </div> 
+      </div> 
+     </div> 
+    </div> 
+    <div class="row" id="neighbourhoods"> 
+     <div class="col-lg-12"> 
+      <div class="panel panel-info"> 
+       <div class="panel-heading"> 
+        <h3 class="panel-title" id="neighbourhoods">Neighbourhoods Calculation Introduction &amp; selection</h3> 
+        <label class="label label-primary" id="neighbourhoods"></label> 
+       </div> 
+       <div class="panel-body"> 
+        <div class="bs-example" id="neighbourhoods"> 
+         <ul class="nav nav-tabs" style="margin-bottom: 15px;"> 
+          <li class="active"><a href="#Means" data-toggle="tab">K-Means Neighbourhoods</a></li> 
+          <li class=""><a href="#Size" data-toggle="tab">Fix-Size Neighbourhoods</a></li> 
+          <li class=""><a href="#Threshold" data-toggle="tab">Threshold-Based Neighbourhoods</a></li> 
+         </ul> 
+         <div id="myTabContent" class="tab-content"> 
+          <div class="tab-pane fade active in" id="Means"> 
+           <p>固定数量的邻居：K-neighbourhoods</p> 
+           <p>不论邻居的“远近”， 只取最近的 K 个，作为其邻居。如图 1 中的 A，假设要计算点 1 的 5- 邻居，那么根据点之间的距离，我们取最近的 5 个点，分别是点 2，点 3，点 4，点 7 和点 5。但很明显我们可以看出，这种方法对于孤立点的计算效果不好，因为要取固定个数的邻居，当它附近没有足够多比较相似的点，就被迫取一些不太相似的点作为 邻居，这样就影响了邻居相似的程度，比如图 1 中，点 1 和点 5 其实并不是很相似。</p> 
+           <button type="button" class="btn btn-primary btn-lg-12 " id="K-neighbourhoods">Selected</button> 
+          </div> 
+          <div class="tab-pane fade" id="Size"> 
+           <p>固定数量的邻居：Fix-size neighbourhoods</p> 
+           <p>不论邻居的“远近”， 只取最近的 K 个，作为其邻居。如图 1 中的 A，假设要计算点 1 的 5- 邻居，那么根据点之间的距离，我们取最近的 5 个点，分别是点 2，点 3，点 4，点 7 和点 5。但很明显我们可以看出，这种方法对于孤立点的计算效果不好，因为要取固定个数的邻居，当它附近没有足够多比较相似的点，就被迫取一些不太相似的点作为 邻居，这样就影响了邻居相似的程度，比如图 1 中，点 1 和点 5 其实并不是很相似。</p> 
+           <button type="button" class="btn btn-primary btn-lg-12 " id="Fix-size neighbourhoods">Selected</button> 
+          </div> 
+          <div class="tab-pane fade" id="Threshold"> 
+           <p>基于相似度门槛的邻居：Threshold-based neighbourhoods</p> 
+           <p>与计算固定数量的邻居的原则不同，基于相 似度门槛的邻居计算是对邻居的远近进行最大值的限制，落在以当前点为中心，距离为 K 的区域中的所有点都作为当前点的邻居，这种方法计算得到的邻居个数不确定，但相似度不会出现较大的误差。如图 1 中的 B，从点 1 出发，计算相似度在 K 内的邻居，得到点 2，点 3，点 4 和点 7，这种方法计算出的邻居的相似度程度比前一种优，尤其是对孤立点的处理。</p> 
+           <button type="button" class="btn btn-primary btn-lg-12 " id="Threshold-based neighbourhoods">Selected</button> 
+          </div> 
+         </div> 
+        </div> 
+       </div> 
+      </div> 
+     </div> 
+    </div> 
+    <div class="row"> 
+     <div class="col-lg-8"> 
+      <div class="well well-lg"> 
+       <div> 
+        <h3>Some Details</h3> 
+       </div> 
+       <form role="form" action="model_selected"> 
+        <div class="form-group "> 
+         <label>Similarity Calculation Selects</label> 
+         <select class="form-control" name="similarity" id="similarity"> <option>Euclidean Distance</option> <option>Pearson Correlation Coefficient</option> <option>Log-likelihood Similarity</option> <option>Tanimoto Coefficient</option> </select> 
+        </div> 
+        <div class="form-group "> 
+         <label>Collaborative Filtering Selects</label> 
+         <select class="form-control" name="collaborative_filtering" id="collaborative_filtering"> <option id="user_cf">User CF</option> <option id="item_cf">Item CF</option> </select> 
+        </div> 
+        <div class="form-group " id="neighbourhoods"> 
+         <label>Neighbourhoods Calculation Selects</label> 
+         <select class="form-control" name="neighbourhoods" id="neighbourhoods"> <option>K-neighbourhoods</option> <option>Fix-size neighbourhoods</option> <option>Threshold-based neighbourhoods</option> </select> 
+        </div> 
+        <button type="submit" class="btn btn-primary btn-lg-12 ">Submit</button> 
+       </form> 
+      </div> 
+     </div> 
+    </div> 
+    <!-- /#wrapper --> 
+    <!-- JavaScript --> 
+    <script src="js/jquery-1.10.2.js"></script> 
+    <script src="js/bootstrap.js"></script> 
+    <script> $(document).ready(function() {
+  $("option#item_cf").click(function() {
+
+    $("div#neighbourhoods").hide();
+
+  });
+  $("option#user_cf").click(function() {
+
+    $("div#neighbourhoods").show();
+
+  });
+
+
+  $("button").click(function() {
+    // $(this).hide();
+    var $my_id = $(this).parent().parent().parent().attr("id");
+    // alert($my_id);
+    if ($my_id == "similarity") {
+      var $my_text = $(this).attr("id");
+      $("label#similarity").text($my_text);
+      $("select#similarity").val($my_text);
+    } else if ($my_id == "neighbourhoods") {
+      var $my_text = $(this).attr("id");
+      $("label#neighbourhoods").text($my_text);
+      $("select#neighbourhoods").val($my_text);
+    } else if ($my_id == "collaborative_filtering") {
+      var $my_text = $(this).attr("id");
+     if($my_text=="Item CF") {
+    $("div#neighbourhoods").hide();
+  }else{
+    $("div#neighbourhoods").show();
+  }
+      $("label#collaborative_filtering").text($my_text);
+      $("select#collaborative_filtering").val($my_text);
+    }
+
+  });
+}); </script> 
+   </div> 
+  </div>  
+ </body>
+</html>

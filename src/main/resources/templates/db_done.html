@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head> 
+  <meta charset="utf-8" /> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" /> 
+  <meta name="description" content="" /> 
+  <meta name="author" content="" /> 
+  <title>Blank Page - SB Admin</title> 
+  <!-- Bootstrap core CSS --> 
+  <link href="css/bootstrap.css" rel="stylesheet" /> 
+  <!-- Add custom CSS here --> 
+  <link href="css/sb-admin.css" rel="stylesheet" /> 
+  <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css" /> 
+ </head> 
+ <body> 
+  <div id="wrapper"> 
+   <!-- Sidebar --> 
+   <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation"> 
+    <!-- Brand and toggle get grouped for better mobile display --> 
+    <div class="navbar-header"> 
+     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button> 
+    <a class="navbar-brand" href="index.html">Recommender System</a>
+    </div> 
+    <!-- Collect the nav links, forms, and other content for toggling --> 
+    <div class="collapse navbar-collapse navbar-ex1-collapse">
+        <ul class="nav navbar-nav side-nav">
+          <li><a href="index.html"><i class="fa fa-font"></i>
+              Introduction</a></li>
+          <li ><a href="set_db.html"><i
+              class="fa fa-wrench"></i> Setting Database </a></li>
+          <li class="active"><a href="db_done.html"><i class="fa fa-table"></i>
+              Over View Data</a></li>
+          <li><a href="select_model.html"><i class="fa fa-edit"></i> Select Models</a></li>
+          <li><a href="model_selected.html"><i class="fa fa-desktop"></i>
+              Recommend Test</a></li>
+          <li><a href="recommend_results.html"><i
+              class="fa fa-bar-chart-o"></i> Recommended Results</a></li>
+          
+        </ul>
+        <ul class="nav navbar-nav navbar-right navbar-user">
+          <li class="dropdown messages-dropdown"><a href="#"
+            class="dropdown-toggle" data-toggle="dropdown"><i
+              class="fa fa-envelope"></i> Messages <span class="badge">1</span>
+              <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              <li class="dropdown-header">1 New Messages</li>
+              <li class="message-preview"><a href="#"> <span
+                  class="avatar"><img src="http://placehold.it/50x50" /></span>
+                  <span class="name">Initialization</span> <span class="message">Hey there, Just initialization your recommended system...</span> <span class="time"><i
+                    class="fa fa-clock-o"></i> Now</span>
+              </a></li>
+              <li class="divider"></li>
+              
+              <li><a href="#">View Inbox <span class="badge">1</span></a></li>
+            </ul></li>
+          <li class="dropdown alerts-dropdown"><a href="#"
+            class="dropdown-toggle" data-toggle="dropdown"><i
+              class="fa fa-bell"></i> Alerts <span class="badge"></span> <b
+              class="caret"></b></a>
+            <ul class="dropdown-menu">
+              <li><a href="#">Default <span
+                  class="label label-default">Default</span></a></li>
+              <li><a href="#">Primary <span
+                  class="label label-primary">Primary</span></a></li>
+              <li><a href="#">Success <span
+                  class="label label-success">Success</span></a></li>
+              <li><a href="#">Info <span class="label label-info">Info</span></a></li>
+              <li><a href="#">Warning <span
+                  class="label label-warning">Warning</span></a></li>
+              <li><a href="#">Danger <span class="label label-danger">Danger</span></a></li>
+              <li class="divider"></li>
+              <li><a href="#">View All</a></li>
+            </ul></li>
+          <li class="dropdown user-dropdown"><a href="#"
+            class="dropdown-toggle" data-toggle="dropdown"><i
+              class="fa fa-user"></i> Jana <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              <li><a href="#"><i class="fa fa-user"></i> Profile</a></li>
+              <li><a href="#"><i class="fa fa-envelope"></i> Inbox <span
+                  class="badge">1</span></a></li>
+              <li><a href="#"><i class="fa fa-gear"></i> Settings</a></li>
+              <li class="divider"></li>
+              <li><a href="#"><i class="fa fa-power-off"></i> Log Out</a></li>
+            </ul></li>
+        </ul>
+      </div>
+    <!-- /.navbar-collapse --> 
+   </nav> 
+   <div id="page-wrapper"> 
+     <div class="row"> 
+     <div class="col-lg-12"> 
+      <div class="panel panel-warning"> 
+       <div class="panel-heading"> 
+        <div class="row"> 
+         <div class="col-xs-3"> 
+          <i class="fa fa-check fa-5x"></i> 
+         </div> 
+         <div class="col-xs-12 text-right"> 
+          <p class="announcement-heading">Database Connection Success</p> 
+          <p class="announcement-text" th:text="'dbSetting ' + ${dbSetting} + '!'"></p> 
+         </div> 
+        </div> 
+       </div> 
+       <a href="#" id="btn1"> 
+        <div class="panel-footer announcement-bottom"> 
+         <div class="row"> 
+          <div class="col-xs-6">
+            Schema Tables 
+          </div> 
+          <div class="col-xs-6 text-right"> 
+           <i class="fa fa-arrow-circle-right"></i> 
+          </div> 
+         </div> 
+        </div> </a> 
+      </div> 
+     </div> 
+    </div> 
+    <div class="row"> 
+     <div class="col-lg-12"> 
+      
+          
+<div class="jumbotron"> 
+        <h1 th:text="'database connection '+${conn_message}"></h1> 
+        <p>Now database connection is build successfully.</p> 
+        <p>You can have an overview of the data or just continune.</p> 
+         <p th:text="'databaseURL: ' + ${dbSetting.databaseURL} + '!'"></p> 
+       <p th:text="'databaseUser: ' + ${dbSetting.databaseUser} + '!'"></p> 
+       <p th:text="'databaseType: ' + ${dbSetting.databaseType} + '!'"></p> 
+       <p th:text="'databaseDriver: '+${dbSetting.databaseDriver}"></p> 
+        <p><a href="select_model" class="btn btn-primary btn-lg">Next Step</a></p> 
+       </div>
+      
+
+     
+      <!-- <ol class="breadcrumb"> 
+       <li><i class="active"></i> Click</li> 
+       <button id="btn1">here</button> 
+       <li class="active"><i class="icon-file-alt"></i>to view data. </li> 
+      </ol>  -->
+     </div> 
+    </div> 
+    <div class="row" id="table"> 
+     <div class="col-lg-12"> 
+      <h2>Overview</h2> 
+      <div class="panel panel-primary"> 
+       <div class="panel-heading"> 
+        <h3 class="panel-title"><i class="fa fa-bar-chart-o"></i> Data from database</h3> 
+       </div> 
+       <div class="panel-body"> 
+        <div class="col-lg-6"> 
+         <h2>Table: course</h2> 
+         <div class="table-responsive"> 
+          <table class="table table-hover table-striped tablesorter"> 
+           <thead> 
+            <tr> 
+             <th>Student Number <i class="fa fa-sort"></i></th> 
+             <th class="header headerSortUp">Course Number <i class="fa fa-sort"></i></th> 
+            </tr> 
+           </thead> 
+           <tbody> 
+           </tbody> 
+          </table> 
+         </div> 
+        </div> 
+       </div> 
+      </div> 
+     </div> 
+    </div> 
+   </div> 
+   <!-- /.row --> 
+   <!-- /#page-wrapper --> 
+  </div> 
+  <!-- /#wrapper --> 
+  <!-- JavaScript --> 
+  <script src="js/jquery-1.10.2.js"></script> 
+  <script src="js/bootstrap.js"></script> 
+  <script src="js/tablesorter/jquery.tablesorter.js"></script> 
+  <script src="js/tablesorter/tables.js"></script> 
+  <script>
+  $(document).ready(function() {
+    $("#table").hide();
+      $("#btn1").click(function() {
+        $("#table").show();
+          alert("读取数据");
+          $.post("/test", {
+              id: "551f6e001800001730fc7771",
+              shared: "ture"
+          },
+          function(data, status) {
+            
+              alert("Data: " + data + "\nStatus: " + status);
+              var num=data.split(";");
+              for(var i in num){
+                 var item=num[i].split(",");
+                 $("tbody").html($("tbody").html()+"<tr> <td>"+item[0]+"</td> <td>"+item[1]+"</td> </tr>");
+                   
+                 if(i>100){
+                   break;
+                 }
+              }
+              
+
+          });
+      });
+  });
+</script>  
+ </body>
+</html>
