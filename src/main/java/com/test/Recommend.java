@@ -9,7 +9,6 @@ import java.util.Map;
 import java.util.Map.Entry;
 
 public class Recommend {
-	//user cf
 	
 	/**
 	 * 
@@ -20,8 +19,6 @@ public class Recommend {
 	 * @param pm2
 	 * @return
 	 * @Description获取两个用户之间的皮尔逊相似度,相关系数的绝对值越大,相关度越大
-	 * @author qinshijiang
-	 * @Date 2013-9-4
 	 */
 	public static double getUserSimilar(Map<String, Integer> pm1,
 			Map<String, Integer> pm2) {
@@ -60,8 +57,6 @@ public class Recommend {
 	 * @param pm2
 	 * @return
 	 * @Description获取两个用户之间的欧几里得距离,距离越小越好
-	 * @author qinshijiang
-	 * @Date 2013-9-4
 	 */
 	public static double getEuclidDistance(Map<String, Integer> pm1,
 			Map<String, Integer> pm2) {
@@ -87,8 +82,6 @@ public class Recommend {
 	 * @param simUserSimMap
 	 * @return
 	 * @Description根据相关系数得到推荐物品
-	 * @author qinshijiang
-	 * @Date 2013-9-4
 	 */
 	public static String getRecommend(
 			Map<String, Map<String, Integer>> simUserObjMap,

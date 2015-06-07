@@ -1,430 +1,339 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="description" content="" />
-<meta name="author" content="" />
-
-<title>Dashboard - SB Admin</title>
-
-<!-- Bootstrap core CSS -->
-<link href="css/bootstrap.css" rel="stylesheet" />
-
-<!-- Add custom CSS here -->
-<link href="css/sb-admin.css" rel="stylesheet" />
-<link rel="stylesheet" href="font-awesome/css/font-awesome.min.css" />
-<!-- Page Specific CSS -->
-<link rel="stylesheet" href="css/morris-0.4.3.min.css" />
-</head>
-
-<body>
-	
-	<div id="wrapper">
-
-		<!-- Sidebar -->
-		<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-			<!-- Brand and toggle get grouped for better mobile display -->
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle" data-toggle="collapse"
-					data-target=".navbar-ex1-collapse">
-					<span class="sr-only">Toggle navigation</span> <span
-						class="icon-bar"></span> <span class="icon-bar"></span> <span
-						class="icon-bar"></span>
-				</button>
-				<a class="navbar-brand" href="index.html">SB Admin</a>
-			</div>
-
-			<!-- Collect the nav links, forms, and other content for toggling -->
-			<div class="collapse navbar-collapse navbar-ex1-collapse">
-				<ul class="nav navbar-nav side-nav">
-					<li class="active"><a href="index.html"><i
-							class="fa fa-dashboard"></i> Dashboard</a></li>
-					<li><a href="charts.html"><i class="fa fa-bar-chart-o"></i>
-							Charts</a></li>
-					<li><a href="tables.html"><i class="fa fa-table"></i>
-							Tables</a></li>
-					<li><a href="forms.html"><i class="fa fa-edit"></i> Forms</a></li>
-					<li><a href="typography.html"><i class="fa fa-font"></i>
-							Typography</a></li>
-					<li><a href="bootstrap-elements.html"><i
-							class="fa fa-desktop"></i> Bootstrap Elements</a></li>
-					<li><a href="bootstrap-grid.html"><i class="fa fa-wrench"></i>
-							Bootstrap Grid</a></li>
-					<li><a href="blank-page.html"><i class="fa fa-file"></i>
-							Blank Page</a></li>
-					<li class="dropdown"><a href="#" class="dropdown-toggle"
-						data-toggle="dropdown"><i class="fa fa-caret-square-o-down"></i>
-							Dropdown <b class="caret"></b></a>
-						<ul class="dropdown-menu">
-							<li><a href="#">Dropdown Item</a></li>
-							<li><a href="#">Another Item</a></li>
-							<li><a href="#">Third Item</a></li>
-							<li><a href="#">Last Item</a></li>
-						</ul></li>
-				</ul>
-
-				<ul class="nav navbar-nav navbar-right navbar-user">
-					<li class="dropdown messages-dropdown"><a href="#"
-						class="dropdown-toggle" data-toggle="dropdown"><i
-							class="fa fa-envelope"></i> Messages <span class="badge">7</span>
-							<b class="caret"></b></a>
-						<ul class="dropdown-menu">
-							<li class="dropdown-header">7 New Messages</li>
-							<li class="message-preview"><a href="#"> <span
-									class="avatar"><img src="http://placehold.it/50x50" /></span> <span
-									class="name">John Smith:</span> <span class="message">Hey
-										there, I wanted to ask you something...</span> <span class="time"><i
-										class="fa fa-clock-o"></i> 4:34 PM</span>
-							</a></li>
-							<li class="divider"></li>
-							<li class="message-preview"><a href="#"> <span
-									class="avatar"><img src="http://placehold.it/50x50" /></span> <span
-									class="name">John Smith:</span> <span class="message">Hey
-										there, I wanted to ask you something...</span> <span class="time"><i
-										class="fa fa-clock-o"></i> 4:34 PM</span>
-							</a></li>
-							<li class="divider"></li>
-							<li class="message-preview"><a href="#"> <span
-									class="avatar"><img src="http://placehold.it/50x50" /></span> <span
-									class="name">John Smith:</span> <span class="message">Hey
-										there, I wanted to ask you something...</span> <span class="time"><i
-										class="fa fa-clock-o"></i> 4:34 PM</span>
-							</a></li>
-							<li class="divider"></li>
-							<li><a href="#">View Inbox <span class="badge">7</span></a></li>
-						</ul></li>
-					<li class="dropdown alerts-dropdown"><a href="#"
-						class="dropdown-toggle" data-toggle="dropdown"><i
-							class="fa fa-bell"></i> Alerts <span class="badge">3</span> <b
-							class="caret"></b></a>
-						<ul class="dropdown-menu">
-							<li><a href="#">Default <span
-									class="label label-default">Default</span></a></li>
-							<li><a href="#">Primary <span
-									class="label label-primary">Primary</span></a></li>
-							<li><a href="#">Success <span
-									class="label label-success">Success</span></a></li>
-							<li><a href="#">Info <span class="label label-info">Info</span></a></li>
-							<li><a href="#">Warning <span
-									class="label label-warning">Warning</span></a></li>
-							<li><a href="#">Danger <span class="label label-danger">Danger</span></a></li>
-							<li class="divider"></li>
-							<li><a href="#">View All</a></li>
-						</ul></li>
-					<li class="dropdown user-dropdown"><a href="#"
-						class="dropdown-toggle" data-toggle="dropdown"><i
-							class="fa fa-user"></i> John Smith <b class="caret"></b></a>
-						<ul class="dropdown-menu">
-							<li><a href="#"><i class="fa fa-user"></i> Profile</a></li>
-							<li><a href="#"><i class="fa fa-envelope"></i> Inbox <span
-									class="badge">7</span></a></li>
-							<li><a href="#"><i class="fa fa-gear"></i> Settings</a></li>
-							<li class="divider"></li>
-							<li><a href="#"><i class="fa fa-power-off"></i> Log Out</a></li>
-						</ul></li>
-				</ul>
-			</div>
-			<!-- /.navbar-collapse -->
-		</nav>
-		<div class="copyrights">
-			Collect from <a href="http://www.cssmoban.com/" title="网站模板">网站模板</a>
-		</div>
-		<div id="page-wrapper">
-
-			<div class="row">
-				<div class="col-lg-12">
-					<h1>
-						Dashboard <small>Statistics Overview</small>
-					</h1>
-					<ol class="breadcrumb">
-						<li class="active"><i class="fa fa-dashboard"></i> Dashboard</li>
-					</ol>
-					<div class="alert alert-success alert-dismissable">
-						<button type="button" class="close" data-dismiss="alert"
-							aria-hidden="true">&times;</button>
-						Welcome to SB Admin by <a class="alert-link"
-							href="http://startbootstrap.com">Start Bootstrap</a>! Feel free
-						to use this template for your admin needs! We are using a few
-						different plugins to handle the dynamic tables and charts, so make
-						sure you check out the necessary documentation links provided.
-					</div>
-				</div>
-			</div>
-			<!-- /.row -->
-
-			<div class="row">
-				<div class="col-lg-3">
-					<div class="panel panel-info">
-						<div class="panel-heading">
-							<div class="row">
-								<div class="col-xs-6">
-									<i class="fa fa-comments fa-5x"></i>
-								</div>
-								<div class="col-xs-6 text-right">
-									<p class="announcement-heading">456</p>
-									<p class="announcement-text">New Mentions!</p>
-								</div>
-							</div>
-						</div>
-						<a href="#">
-							<div class="panel-footer announcement-bottom">
-								<div class="row">
-									<div class="col-xs-6">View Mentions</div>
-									<div class="col-xs-6 text-right">
-										<i class="fa fa-arrow-circle-right"></i>
-									</div>
-								</div>
-							</div>
-						</a>
-					</div>
-				</div>
-				<div class="col-lg-3">
-					<div class="panel panel-warning">
-						<div class="panel-heading">
-							<div class="row">
-								<div class="col-xs-6">
-									<i class="fa fa-check fa-5x"></i>
-								</div>
-								<div class="col-xs-6 text-right">
-									<p class="announcement-heading">12</p>
-									<p class="announcement-text">To-Do Items</p>
-								</div>
-							</div>
-						</div>
-						<a href="#">
-							<div class="panel-footer announcement-bottom">
-								<div class="row">
-									<div class="col-xs-6">Complete Tasks</div>
-									<div class="col-xs-6 text-right">
-										<i class="fa fa-arrow-circle-right"></i>
-									</div>
-								</div>
-							</div>
-						</a>
-					</div>
-				</div>
-				<div class="col-lg-3">
-					<div class="panel panel-danger">
-						<div class="panel-heading">
-							<div class="row">
-								<div class="col-xs-6">
-									<i class="fa fa-tasks fa-5x"></i>
-								</div>
-								<div class="col-xs-6 text-right">
-									<p class="announcement-heading">18</p>
-									<p class="announcement-text">Crawl Errors</p>
-								</div>
-							</div>
-						</div>
-						<a href="#">
-							<div class="panel-footer announcement-bottom">
-								<div class="row">
-									<div class="col-xs-6">Fix Issues</div>
-									<div class="col-xs-6 text-right">
-										<i class="fa fa-arrow-circle-right"></i>
-									</div>
-								</div>
-							</div>
-						</a>
-					</div>
-				</div>
-				<div class="col-lg-3">
-					<div class="panel panel-success">
-						<div class="panel-heading">
-							<div class="row">
-								<div class="col-xs-6">
-									<i class="fa fa-comments fa-5x"></i>
-								</div>
-								<div class="col-xs-6 text-right">
-									<p class="announcement-heading">56</p>
-									<p class="announcement-text">New Orders!</p>
-								</div>
-							</div>
-						</div>
-						<a href="#">
-							<div class="panel-footer announcement-bottom">
-								<div class="row">
-									<div class="col-xs-6">Complete Orders</div>
-									<div class="col-xs-6 text-right">
-										<i class="fa fa-arrow-circle-right"></i>
-									</div>
-								</div>
-							</div>
-						</a>
-					</div>
-				</div>
-			</div>
-			<!-- /.row -->
-
-			<div class="row">
-				<div class="col-lg-12">
-					<div class="panel panel-primary">
-						<div class="panel-heading">
-							<h3 class="panel-title">
-								<i class="fa fa-bar-chart-o"></i> Traffic Statistics: October 1,
-								2013 - October 31, 2013
-							</h3>
-						</div>
-						<div class="panel-body">
-							<div id="morris-chart-area"></div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<!-- /.row -->
-
-			<div class="row">
-				<div class="col-lg-4">
-					<div class="panel panel-primary">
-						<div class="panel-heading">
-							<h3 class="panel-title">
-								<i class="fa fa-long-arrow-right"></i> Traffic Sources: October
-								1, 2013 - October 31, 2013
-							</h3>
-						</div>
-						<div class="panel-body">
-							<div id="morris-chart-donut"></div>
-							<div class="text-right">
-								<a href="#">View Details <i class="fa fa-arrow-circle-right"></i></a>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-4">
-					<div class="panel panel-primary">
-						<div class="panel-heading">
-							<h3 class="panel-title">
-								<i class="fa fa-clock-o"></i> Recent Activity
-							</h3>
-						</div>
-						<div class="panel-body">
-							<div class="list-group">
-								<a href="#" class="list-group-item"> <span class="badge">just
-										now</span> <i class="fa fa-calendar"></i> Calendar updated
-								</a> <a href="#" class="list-group-item"> <span class="badge">4
-										minutes ago</span> <i class="fa fa-comment"></i> Commented on a post
-								</a> <a href="#" class="list-group-item"> <span class="badge">23
-										minutes ago</span> <i class="fa fa-truck"></i> Order 392 shipped
-								</a> <a href="#" class="list-group-item"> <span class="badge">46
-										minutes ago</span> <i class="fa fa-money"></i> Invoice 653 has been
-									paid
-								</a> <a href="#" class="list-group-item"> <span class="badge">1
-										hour ago</span> <i class="fa fa-user"></i> A new user has been added
-								</a> <a href="#" class="list-group-item"> <span class="badge">2
-										hours ago</span> <i class="fa fa-check"></i> Completed task: "pick up
-									dry cleaning"
-								</a> <a href="#" class="list-group-item"> <span class="badge">yesterday</span>
-									<i class="fa fa-globe"></i> Saved the world
-								</a> <a href="#" class="list-group-item"> <span class="badge">two
-										days ago</span> <i class="fa fa-check"></i> Completed task: "fix
-									error on sales page"
-								</a>
-							</div>
-							<div class="text-right">
-								<a href="#">View All Activity <i
-									class="fa fa-arrow-circle-right"></i></a>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-4">
-					<div class="panel panel-primary">
-						<div class="panel-heading">
-							<h3 class="panel-title">
-								<i class="fa fa-money"></i> Recent Transactions
-							</h3>
-						</div>
-						<div class="panel-body">
-							<div class="table-responsive">
-								<table
-									class="table table-bordered table-hover table-striped tablesorter">
-									<thead>
-										<tr>
-											<th>Order # <i class="fa fa-sort"></i></th>
-											<th>Order Date <i class="fa fa-sort"></i></th>
-											<th>Order Time <i class="fa fa-sort"></i></th>
-											<th>Amount (USD) <i class="fa fa-sort"></i></th>
-										</tr>
-									</thead>
-									<tbody>
-										<tr>
-											<td>3326</td>
-											<td>10/21/2013</td>
-											<td>3:29 PM</td>
-											<td>$321.33</td>
-										</tr>
-										<tr>
-											<td>3325</td>
-											<td>10/21/2013</td>
-											<td>3:20 PM</td>
-											<td>$234.34</td>
-										</tr>
-										<tr>
-											<td>3324</td>
-											<td>10/21/2013</td>
-											<td>3:03 PM</td>
-											<td>$724.17</td>
-										</tr>
-										<tr>
-											<td>3323</td>
-											<td>10/21/2013</td>
-											<td>3:00 PM</td>
-											<td>$23.71</td>
-										</tr>
-										<tr>
-											<td>3322</td>
-											<td>10/21/2013</td>
-											<td>2:49 PM</td>
-											<td>$8345.23</td>
-										</tr>
-										<tr>
-											<td>3321</td>
-											<td>10/21/2013</td>
-											<td>2:23 PM</td>
-											<td>$245.12</td>
-										</tr>
-										<tr>
-											<td>3320</td>
-											<td>10/21/2013</td>
-											<td>2:15 PM</td>
-											<td>$5663.54</td>
-										</tr>
-										<tr>
-											<td>3319</td>
-											<td>10/21/2013</td>
-											<td>2:13 PM</td>
-											<td>$943.45</td>
-										</tr>
-									</tbody>
-								</table>
-							</div>
-							<div class="text-right">
-								<a href="#">View All Transactions <i
-									class="fa fa-arrow-circle-right"></i></a>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<!-- /.row -->
-
-		</div>
-		<!-- /#page-wrapper -->
-
-	</div>
-	<!-- /#wrapper -->
-
-	<!-- JavaScript -->
-	<script src="js/jquery-1.10.2.js"></script>
-	<script src="js/bootstrap.js"></script>
-
-	<!-- Page Specific Plugins -->
-	<script src="js/raphael-min.js"></script>
-	<script src="js/morris-0.4.3.min.js"></script>
-	<script src="js/morris/chart-data-morris.js"></script>
-	<script src="js/tablesorter/jquery.tablesorter.js"></script>
-	<script src="js/tablesorter/tables.js"></script>
-
-</body>
+ <head> 
+  <meta charset="utf-8" /> 
+  <title>Introduction of Recommender System</title> 
+  <link href="css/bootstrap.css" rel="stylesheet" type="text/css" /> 
+  <link href="css/style.css" rel="stylesheet" type="text/css" /> 
+  <meta name="viewport" content="width=device-width, initial-scale=1" /> 
+  <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script> 
+  <script src="js/jquery-1.11.0.min.js"></script> 
+  <link rel="stylesheet" href="css/flexslider.css" type="text/css" media="screen" /> 
+  <script src="js/modernizr.js"></script> 
+  <!--Start-smoth-scrolling--> 
+  <script type="text/javascript" src="js/move-top.js"></script> 
+  <script type="text/javascript" src="js/easing.js"></script> 
+  <script type="text/javascript">
+      jQuery(document).ready(function($) {
+        $(".scroll").click(function(event){   
+          event.preventDefault();
+          $('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+        });
+      });
+    </script> 
+  <!--end-smoth-scrolling--> 
+  <!--animated-css--> 
+  <link href="css/animate.css" rel="stylesheet" type="text/css" media="all" /> 
+  <script src="js/wow.min.js"></script> 
+  <script>
+     new WOW().init();
+    </script> 
+  <!--animated-css--> 
+ </head> 
+ <body> 
+  <!-- Header Starts Here --> 
+  <div class="header" id="home"> 
+   <div class="container"> 
+    <div class="logo"> 
+     <h1><a href="index.html">Recommender System</a></h1> 
+    </div> 
+    <span class="menu"> </span> 
+    <div class="cleare"> 
+    </div> 
+    <script>
+          $( "span.menu" ).click(function() {
+            $( "ul.navig" ).slideToggle( "slow", function() {
+              // Animation complete.
+            });
+          });
+        </script> 
+    <div class="navigation"> 
+     <ul class="navig"> 
+      <li><a class="scroll" href="#home">HOME</a></li> 
+      <li><a href="#about" class="scroll">ITRODUCTION</a></li> 
+      <li><a href="#services" class="scroll">STEPES</a></li> 
+      <li><a href="#project" class="scroll">FEATRUE</a></li> 
+      <!-- <li><a href="#contact" class="scroll">CONTACT</a></li>  --> 
+     </ul> 
+    </div> 
+    <div class="clearfix"> 
+    </div> 
+   </div> 
+  </div> 
+  <!-- Header Ends Here --> 
+  <!-- Banner Starts Here --> 
+  <div class="banner"> 
+   <div class="slider"> 
+    <section class="slider"> 
+     <div class="flexslider"> 
+      <ul class="slides"> 
+       <li> <h2>Introduction of Recommender System</h2> <h5>阅读此引导页面－－推荐系统介绍</h5> </li> 
+       <li> <h2>Set up the connection of Database</h2> <h5>创建推荐模型第一步－－建立数据库连接</h5> </li> 
+       <li> <h2>Select suitable Algorithm</h2> <h5>创建推荐模型第二步－－选择合适的算法</h5> </li> 
+       <li> <h2>Test your Recommender Model</h2> <h5>成功创建推荐模型－－测试推荐模型</h5> </li> 
+      </ul> 
+     </div> 
+    </section> 
+    <script>window.jQuery || document.write('<script src="js/libs/jquery-1.7.min.js">\x3C/script>')</script> 
+    <!--FlexSlider--> 
+    <script defer="" src="js/jquery.flexslider.js"></script> 
+    <script type="text/javascript">
+    $(function(){
+      SyntaxHighlighter.all();
+    });
+    $(window).load(function(){
+      $('.flexslider').flexslider({
+        animation: "slide",
+        start: function(slider){
+          $('body').removeClass('loading');
+        }
+      });
+    });
+  </script> 
+  </script>  
+   </div> 
+  </div> 
+  <div class="about" id="about"> 
+   <div class="container"> 
+    <div class="about1 clock wow bounceIn"> 
+     <div class="col-md-6 "> 
+      <div class="about-top"> 
+       <h2>The Purpose of this Recommender System</h2> 
+       <h3>以最小的代价<p></p><p>在已经开发完成的原有系统上</p><p>加上推荐功能</p></h3> 
+       <a href="/set_db">Let's do it</a> 
+      </div> 
+      <div class="clearfix"> 
+      </div> 
+     </div> 
+     <div class="col-md-6"> 
+      <div class="about-bottom"> 
+       <a href="#"><p class="para1">仅需要进行必要的一次性的初始化设置,</p> <p class="para1">以接口的方式提供推荐功能服务,</p> <p class="para1">将推荐结果进行Json格式化之后返回.</p></a> 
+       <p class="para2">可视的化交互，高效的推荐计算，安全的数据读取</p> 
+       <p class="para3">在系统建设时引入了gradle进行编译以及依赖包的管理、并使用Github进行代码的管理。同时为了保证系统的质量及安全性，使用spring－boot作为mvc框架核心，避免了很多因为代码不成熟导致的漏洞。而且在算法部分为了优化算法的性能与速度引入了Apache Mahout，对系统的计算性能进行了优化，提高运算速度以及数据处理量。</p> 
+      </div> 
+     </div> 
+     <div class="clearfix"> 
+     </div> 
+    </div> 
+   </div> 
+  </div> 
+  <div class="content" id="services"> 
+   <div class="container"> 
+    <div class="content-1 clock wow bounceIn"> 
+     <div class="col-md-4"> 
+      <div class="content-grids"> 
+       <div class="content-left"> 
+        <span class="cnt2"> </span> 
+       </div> 
+       <div class="content-right"> 
+        <h3>创建数据库连接</h3> 
+        <p>建立有效的数据连接，可以是Mysql, Sql Server,orcal,Mogodb等数据库，具体使用的数据库根据原系统而定。</p> 
+        <a href="/set_db">MORE</a> 
+       </div> 
+       <div class="clearfix"> 
+       </div> 
+      </div> 
+     </div> 
+     <div class="col-md-4"> 
+      <div class="content-grids"> 
+       <div class="content-left"> 
+        <span class="cnt3"> </span> 
+       </div> 
+       <div class="content-right"> 
+        <h3>选择模型算法</h3> 
+        <p>选择与原系统环境和条件相适应的推荐算法。包括相似度计算的算法、协同过滤推荐算法、近邻算法。</p> 
+        <a href="/set_db">MORE</a> 
+       </div> 
+       <div class="clearfix"> 
+       </div> 
+      </div> 
+     </div> 
+     <div class="col-md-4"> 
+      <div class="content-grids"> 
+       <div class="content-left"> 
+        <span class="cnt1"> </span> 
+       </div> 
+       <div class="content-right"> 
+        <h3>测试推荐模型</h3> 
+        <p>推荐系统将根据不同的算法对所提供的数据进行推荐计算，根据不同的算法推荐结果会有一定的差异。</p> 
+        <a href="/set_db">MORE</a> 
+       </div> 
+       <div class="clearfix"> 
+       </div> 
+      </div> 
+     </div> 
+     <div class="clearfix"> 
+     </div> 
+    </div> 
+   </div> 
+  </div> 
+  <div class="project"> 
+   <div class="container"> 
+    <div class="project-1 clock wow bounceIn"> 
+     <h3>Recommender System</h3> 
+     <p>减少原系统改动，仅需一次性初始化设置，以接口的方式调用，推荐结果Json返回。</p> 
+     <form action="/set_db"> 
+      <input type="text" size="30px" value="HOW TO START?" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'HOW TO START?';}" /> 
+      <input   type="submit" value="GO" /> 
+     </form> 
+    </div> 
+   </div> 
+  </div> 
+  <!--Responsive-tabs-Starts-Here--> 
+  <div class="responsive-tabs" id="project"> 
+   <div class="container"> 
+    <div class="tabs-box clock wow bounceIn"> 
+     <ul class="tabs-menu"> 
+      <li><a href="#tab1"><img src="images/f.png" alt="" />USEING TOOLS</a></li> 
+      <li><a href="#tab2"><img src="images/d.png" alt="" />ABOUT STURCTURE</a></li> 
+     </ul> 
+     <div class="clearfix"> 
+     </div> 
+     <div class="tab-grids"> 
+      <div id="tab1" class="tab-grid"> 
+       <div class="col-md-6 line1"> 
+        <img src="images/gradle1.jpg" alt="" /> 
+        <p>Gradle是一个建立在Apache Ant和Apache Maven及基于Groovy的领域特定语言（DSL）的声明概念的项目自动化工具，而不是更传统的XML形式的项目配置。不同于Apache Maven定义的生命周期，和Apache Ant，基于一个依赖上偏序的目标调用，Gradle采用了向无环图（“DAG”），以确定哪些任务可以运行的顺序。</p> 
+       </div> 
+       <div class="col-md-6 line2"> 
+        <img src="images/spring-io-tree.jpg" alt="" /> 
+        <p>Spring框架是一个开源应用框架和控制翻转（Inversion of Control，IoC）的Java平台。该框架的核心功能可用于任何Java应用程序，以及有扩展的Java EE平台上构建Web应用程序。虽然框架不强加任何特定的编程模型，它已成为流行的Java社区作为替代，甚至移除除Enterprise JavaBean（EJB）模型。</p> 
+       </div> 
+       <div class="clearfix"> 
+       </div> 
+      </div> 
+      <div id="tab2" class="tab-grid"> 
+       <div class="col-md-6 line1"> 
+        <img src="images/my_recommender.jpg" alt="" /> 
+        <p>图为用户、原系统、推荐系统在线子系统交互图主要体现的是用户、原系统以及本推荐系统之间的关系概括，用户是原系统用户、其主要详细信息属于原系统；原系统将用户和所有物品的关系整理成为一张既不含有用户详细信息也不含有物品详细信息的极简表，推荐系统将通过读取分析这张特定的表，得出推荐结果返回原系统，由原系统根据需要进行展示。</p> 
+       </div> 
+       <div class="col-md-6 line2"> 
+        <img src="images/recommender.jpg" alt="" /> 
+        <p> 首先，通过分析用户的偏好行为，来挖掘出里面物品与物品、或人与人之间的关联。 其次，通过对这些关联的关系做一定的运算，得出人与物品间喜欢程度的猜测，即推荐值。 最后，将推荐值高的物品推送给特定的人，以完成一次推荐。</p> 
+       </div> 
+       <div class="clearfix"> 
+       </div> 
+      </div> 
+     </div> 
+    </div> 
+   </div> 
+   <!--Script--> 
+   <script src="js/jquery-1.11.0.min.js"></script> 
+   <script src="js/myscript.js"> </script> ` 
+   <!--Script--> 
+  </div> 
+  <div class="copyrights">
+    Collect from 
+   <a href="http://www.cssmoban.com/" title="&Iacute;&oslash;&Otilde;&frac34;&Auml;&pound;&deg;&aring;">&Iacute;&oslash;&Otilde;&frac34;&Auml;&pound;&deg;&aring;</a> 
+  </div> 
+  <!--Responsive-tabs-ends-Here--> 
+  <!-- <div class="contact" id="contact"> 
+   <div class="container"> 
+    <div class="contact-1 clock wow bounceIn"> 
+     <div class="col-md-3 contact-top1"> 
+      <h3>BLOG POSTS</h3> 
+      <div class="contact-grid"> 
+       <div class="contact-left"> 
+        <img src="images/m-1.png" alt="" /> 
+       </div> 
+       <div class="contact-right"> 
+        <span>Aug/27/2013</span> 
+        <h4>Cohn Doe</h4> 
+        <p>Praesent dapibus, neque id cursus faucibus, tortor ...</p> 
+       </div> 
+       <div class="clearfix"> 
+       </div> 
+      </div> 
+      <div class="contact-grid"> 
+       <div class="contact-left"> 
+        <img src="images/m-3.png" alt="" /> 
+       </div> 
+       <div class="contact-right"> 
+        <span>Aug/27/2013</span> 
+        <h4>Cohn Doe</h4> 
+        <p>Praesent dapibus, neque id cursus faucibus, tortor ...</p> 
+       </div> 
+       <div class="clearfix"> 
+       </div> 
+      </div> 
+      <div class="contact-grid"> 
+       <div class="contact-left"> 
+        <img src="images/m-2.png" alt="" /> 
+       </div> 
+       <div class="contact-right"> 
+        <span>Aug/27/2013</span> 
+        <h4>Cohn Doe</h4> 
+        <p>Praesent dapibus, neque id cursus faucibus, tortor ...</p> 
+       </div> 
+       <div class="clearfix"> 
+       </div> 
+      </div> 
+     </div> 
+     <div class="col-md-3 contact-top2"> 
+      <h3>TWITTER POSTS</h3> 
+      <div class="contact-grid1"> 
+       <div class="contact-left1"> 
+        <a href="#"><img src="images/twit.png" alt="" /></a> 
+       </div> 
+       <div class="contact-right1"> 
+        <h4>@rafimit</h4> 
+        <p>Morbi interdum mollis sapien sed ac risus. Phasellus lacinia</p> 
+       </div> 
+       <div class="clearfix"> 
+       </div> 
+      </div> 
+      <div class="contact-grid1"> 
+       <div class="contact-left1"> 
+        <a href="#"><img src="images/twit.png" alt="" /></a> 
+       </div> 
+       <div class="contact-right1"> 
+        <h4>@johndoe</h4> 
+        <p>Morbi interdum mollis sapien sed ac risus. Phasellus lacinia</p> 
+       </div> 
+       <div class="clearfix"> 
+       </div> 
+      </div> 
+      <div class="contact-grid1"> 
+       <div class="contact-left1"> 
+        <a href="#"><img src="images/twit.png" alt="" /></a> 
+       </div> 
+       <div class="contact-right1"> 
+        <h4>@amanda</h4> 
+        <p>Morbi interdum mollis sapien sed ac risus. Phasellus lacinia</p> 
+       </div> 
+       <div class="clearfix"> 
+       </div> 
+      </div> 
+      <div class="contact-grid1"> 
+       <div class="contact-left1"> 
+        <a href="#"><img src="images/twit.png" alt="" /></a> 
+       </div> 
+       <div class="contact-right1"> 
+        <h4>@peter</h4> 
+        <p>Morbi interdum mollis sapien sed ac risus. Phasellus lacinia</p> 
+       </div> 
+       <div class="clearfix"> 
+       </div> 
+      </div> 
+     </div> 
+     <div class="col-md-6 contact-top3"> 
+      <h3>QUICK CONTACT</h3> 
+      <h4>Address</h4> 
+      <p>Building name, some street name, some city name, country</p> 
+      <a href="mailto:info@example.com">info@sitename.com / (000) 888 888 8888</a> 
+     </div> 
+     <div class="clearfix"> 
+     </div> 
+    </div> 
+   </div> 
+  </div>  --> 
+  <div class="footer"> 
+   <div class="container"> 
+    <div class="footer-text"> 
+     <p> &copy; Liushan CHEN </p> 
+    </div> 
+   </div> 
+   <a href="#home" id="toTop" class="scroll" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a> 
+  </div>  
+ </body>
 </html>

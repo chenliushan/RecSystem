@@ -1,17 +1,15 @@
 package org.shan.controller;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.apache.commons.logging.Log;
 import org.apache.mahout.cf.taste.model.DataModel;
 import org.apache.mahout.cf.taste.recommender.RecommendedItem;
 import org.apache.mahout.cf.taste.recommender.Recommender;
 import org.shan.db.DbUtil;
-import org.shan.domain.DbSetting;
 import org.shan.domain.AnalysedModel;
+import org.shan.domain.DbSetting;
 import org.shan.recommender.ItemBaseRecommender;
 import org.shan.recommender.UserBasedRecommender;
 import org.shan.service.DatabaseService;
@@ -23,7 +21,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.test.TestRecommend;
 import com.test.UserDAOImpl;
 
 @Controller
@@ -94,30 +91,36 @@ public class RecController {
 		return "set_db";
 	}
 
-//	@RequestMapping("/blank")
-//	public String blankPage(Model model) {
-//		List<String> nameList = new ArrayList<String>();
-//		nameList.add("aaa");
-//		nameList.add("bbb");
-//		nameList.add("ccc");
-//		nameList.add("ddd");
-//		model.addAttribute("nameList", nameList);
-//		return "blank";
-//	}
+	// @RequestMapping("/blank")
+	// public String blankPage(Model model) {
+	// List<String> nameList = new ArrayList<String>();
+	// nameList.add("aaa");
+	// nameList.add("bbb");
+	// nameList.add("ccc");
+	// nameList.add("ddd");
+	// model.addAttribute("nameList", nameList);
+	// return "blank";
+	// }
 
 	@RequestMapping("/db_done")
-	public String setDbDone(DbSetting dbSetting, HttpServletRequest request,
-			Model model) {
-		DatabaseService dbService = new DatabaseService(dbSetting);
-		this.dataModel = dbService.newModel();
-		System.out.println("dataModel" + dataModel);
-		if (dataModel != null) {
-			model.addAttribute("conn_message", "success");
+	public String setDbDone(
+			 DbSetting dbSetting,
+			HttpServletRequest request, Model model) {
+		if (dbSetting == null) {
+			return "set_db";
 		} else {
-			model.addAttribute("conn_message", "fail");
+
+			DatabaseService dbService = new DatabaseService(dbSetting);
+			this.dataModel = dbService.newModel();
+			System.out.println("dataModel" + dataModel);
+			if (dataModel != null) {
+				model.addAttribute("conn_message", "success");
+			} else {
+				model.addAttribute("conn_message", "fail");
+			}
+			model.addAttribute("dbSetting", dbSetting);
+			return "db_done";
 		}
-		model.addAttribute("dbSetting", dbSetting);
-		return "db_done";
 	}
 
 	@RequestMapping("/select_model")
@@ -140,6 +143,9 @@ public class RecController {
 				+ modelSelected.getSimilarity());
 		System.out.println("dataModel" + dataModel);
 
+		if(dataModel==null){
+			return "set_db";
+		}
 		this.modelSelectedService = new ModelSelectedService(modelSelected,
 				dataModel);
 		model.addAttribute("modelSelected", modelSelected);
@@ -149,22 +155,35 @@ public class RecController {
 	@RequestMapping("/recommend_results")
 	public String recommendPage(
 			@RequestParam(value = "num", required = false, defaultValue = "5") String num,
-			int userID, Model model) {
-		model.addAttribute("num", num);
-		model.addAttribute("userID", userID);
-		return "recommended_results";
+			@RequestParam(value = "userID", required = false, defaultValue = "201225032") int userID,
+			Model model) {
+		if(model!=null){
+			model.addAttribute("num", num);
+			model.addAttribute("userID", userID);
+			return "recommended_results";
+		}else{
+			return "model_selected";
+		}
+		
+		
 	}
 
 	@RequestMapping("/recommend")
 	@ResponseBody
 	public String recommend(
 			@RequestParam(value = "num", required = false, defaultValue = "5") String num,
-			int userID, Model model) {
+			@RequestParam(value = "userID", required = false, defaultValue = "201225032") int userID,
+			Model model) {
 		// model.addAttribute("results",
 		// modelSelectedService.newRecommend(userID, Integer.valueOf(num)));
 		// return "recommend_results";
+
+		if(modelSelectedService!=null){
+			return modelSelectedService.newRecommend(userID, Integer.valueOf(num));
+		}else{
+			return "select_model";
+		}
 		
-		return modelSelectedService.newRecommend(userID, Integer.valueOf(num));
 	}
 
 	@RequestMapping("/test")
@@ -182,17 +201,15 @@ public class RecController {
 		return "greeting";
 	}
 
-
-	
-
 	@RequestMapping("/")
 	public ModelAndView home() {
 		ModelAndView mav = new ModelAndView("index");
 		return mav;
 	}
+
 	@RequestMapping("/home")
 	String home_page() {
-		 return "index";
+		return "index";
 	}
 
 	@RequestMapping("/index")
